@@ -19,6 +19,7 @@
 	-else if no guesses || no time, lose. Mimic eats or otherwise wins against player.
 */
 var sceneEl = document.querySelector('a-scene');
+//Eventually this in theory will be replaced by some kind of materials colorset.
 var colors = ["green", "yellow", "orange", "red", "blue", "purple"];
 var guesses = 3;
 
@@ -39,6 +40,7 @@ function createEntities() {
 	//Add other entities
 	for (var i = 0; i < 12; i++) {
 	var el = document.createElement('a-entity');
+	//Definitely separate this out and clean it up
   var shade = colors[Math.floor(Math.random() * colors.length)]
   var xpos = Math.floor(Math.random() * Math.floor(5));
   var ypos = Math.floor(Math.random() * Math.floor(5));
@@ -53,6 +55,7 @@ function createEntities() {
   });
   el.setAttribute('material', 'color', shade);
   el.setAttribute('position', {x: xpos, y:ypos, z: -3});
+  //As per the docs, click doesn't work this way for 3d elements.
   el.addEventListener('click', function (evt) {
   		  if ("is-mimic" == true) {
 			    alert("RAR YOU FOUND IT");
@@ -131,8 +134,20 @@ function checkIfmimic() {
 }
 
 
-
-function createObject(obj,x,y) {
-
-}
+/*
+function appendObject(id, file, scale, position, rotation, scale) {
+        $('<a-obj-model />', {
+          id: id,
+          class: 'city object children',
+          position: position,  // doesn't seem to do anything, known issue
+          scale: scale,
+          rotation: rotation,
+          file: file,
+          src: '#' + file + '-obj',
+          mtl: '#' + file + '-mtl',
+          appendTo : $('#city')
+        });
+       document.getElementById(id).setAttribute("position", position); // this does set position as a workaround
+      }
+      */
 

@@ -6,8 +6,13 @@
   </head>
   <body>
     <a-scene id="scene" selector="room">
+       <a-assets>
+        <a-asset-item id="test-obj" src="/test.obj"></a-asset-item>
+        <a-asset-item id="test-mtl" src="/test.mtl"></a-asset-item>
+        </a-assets>
       <a-entity control="spawner" visible = 'false'></a-entity>
         <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" is-mimic="false"></a-box>
+        <a-entity obj-model="obj: #test-obj; mtl: #test-mtl" position="-1.3 0.75 -2" scale = '0.3' rotation="0 45 0"></a-entity>
        <a-entity environment="preset: default; dressingAmount: 500"></a-entity>
     </a-scene>
 
