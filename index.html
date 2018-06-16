@@ -12,9 +12,24 @@
         </a-assets>
 
       <a-entity id="camera" camera="userHeight: 1.6" look-controls cursor="rayOrigin: mouse"></a-entity>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow
+
+            <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
+             event-set__enter="_event: mouseenter; color: #026fc9"
+             event-set__leave="_event: mouseleave; color: #4CC3D9">
+        <!-- This animation begins when the box is clicked with the mouse. -->
+        <a-animation attribute="rotation"
+               dur="3000"
+               fill="forwards"
+               to="0 360 0"
+               direction="alternate"
+               begin="click"></a-animation>
+      </a-box>
+
+      <a-box position="2 0.75 -3" rotation="0 45 0" color="#4CF3D9" is-mimic=false> </a-box>
+
+      <a-sphere  position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow
                 event-set__enter="_event: mouseenter; color: #026fc9"
-                event-set__leave="_event: mouseleave; color: #EF2D5E">
+                event-set__leave="_event: mouseleave; color: #EF2D5E" is-mimic=false>
         
         <!-- This animation begins when the sphere is clicked with the mouse. -->
         <a-animation attribute="position"
@@ -25,11 +40,19 @@
                begin="click"></a-animation>
       </a-sphere>
       <a-entity control="spawner" visible = 'false'></a-entity>
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" is-mimic="false" event-set__enter="_event: mouseenter; color: white"
-           event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>
+
+
         <a-entity obj-model="obj: #test-obj; mtl: #test-mtl" position="-1.3 0.75 -2" scale = '0.3' rotation="0 45 0"   event-set__down="_event: mousedown; material.wireframe: true"
              event-set__up="_event: mouseup; material.wireframe: false"
-             event-set__leave="_event: mouseleave; material.wireframe: false"></a-entity>
+             event-set__leave="_event: mouseleave; material.wireframe: false" is-mimic="false">
+                  <a-animation attribute="position"
+               dur="100"
+               fill="forwards"
+               to="0 2.5 -6"
+               direction="alternate"
+               begin="click"></a-animation>
+             </a-entity>
+       <a-plane rotation="-90 0 0"></a-plane>
        <a-entity environment="preset: default; dressingAmount: 500"></a-entity>
     </a-scene>
 
