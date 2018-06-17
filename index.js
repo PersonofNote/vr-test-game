@@ -14,18 +14,11 @@ function createEntities() {
   		height: 0.2,
   		radius: 0.1
 		});
-	mimicEl.setAttribute('is-mimic', true);
+	mimicEl.setAttribute('is-mimic', 'true');
 	mimicEl.setAttribute('material', 'color', 'orange');
-	mimicEl.setAttribute('position', {x: -1, y: 1, z: -1});
-	 mimicEl.addEventListener('click', function (evt) {
-  		  if (mimicEl.getAttribute('is-mimic') == true) {
+	mimicEl.setAttribute('position', {x: -2.5, y: 2.5, z: -1});
+ 	mimicEl.addEventListener('click', function (evt) {
 			    alert("YOU FOUND IT");
-			  }
-			  else {
-			    guesses -= 1;
-			    alert("Nope, try again");
-			    console.log("You have " + guesses);
-			  }
   			});
 	//Add other entities
 	for (var i = 0; i < 12; i++) {
@@ -37,7 +30,7 @@ function createEntities() {
   var ypos = Math.floor(Math.random() * Math.floor(5));
 	sceneEl.appendChild(el);	
 	el.setAttribute('on-load', '');
-  el.setAttribute('is-mimic', false);
+  el.setAttribute('is-mimic', 'false');
   el.setAttribute('geometry', {
   primitive: 'cylinder',
   height: 0.5,
@@ -46,7 +39,7 @@ function createEntities() {
   el.setAttribute('material', 'color', shade);
   el.setAttribute('position', {x: xpos, y:ypos, z: -3});
   el.addEventListener('click', function (evt) {
-  		  if (el.getAttribute('is-mimic') == true) {
+  		  if (el.getAttribute('is-mimic') == 'true') {
 			    alert("YOU FOUND IT");
 			  }
 			  else {
