@@ -11,7 +11,7 @@
         <a-asset-item id="test-mtl" src="/models/test.mtl"></a-asset-item>
         </a-assets>
 
-      <a-entity id="camera" camera="userHeight: 1.6" look-controls cursor="rayOrigin: mouse"></a-entity>
+      <a-entity id="camera" camera="userHeight: 2" look-controls cursor="rayOrigin: mouse"></a-entity>
 
             <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
              event-set__enter="_event: mouseenter; color: #026fc9"
@@ -52,7 +52,7 @@
                direction="alternate"
                begin="click"></a-animation>
              </a-entity>
-       <a-plane rotation="-90 0 0"></a-plane>
+       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
        <a-entity environment="preset: default; dressingAmount: 500"></a-entity>
     </a-scene>
 

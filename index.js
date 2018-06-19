@@ -16,7 +16,7 @@ function createEntities() {
 		});
 	mimicEl.setAttribute('is-mimic', 'true');
 	mimicEl.setAttribute('material', 'color', 'orange');
-	mimicEl.setAttribute('position', {x: -2.5, y: 2.5, z: -1});
+	mimicEl.setAttribute('position', {x: 0, y: 0, z: 0});
  	mimicEl.addEventListener('click', function (evt) {
 			    alert("YOU FOUND IT");
   			});
@@ -25,9 +25,9 @@ function createEntities() {
 	var el = document.createElement('a-entity');
 	//Definitely separate this out and clean it up
   var shade = colors[Math.floor(Math.random() * colors.length)]
-  var xpos = Math.floor(Math.random() * Math.floor(5));
-  var ypos = Math.floor(Math.random() * Math.floor(5));
-  var ypos = Math.floor(Math.random() * Math.floor(5));
+  var xpos = Math.floor(Math.random() * Math.floor(2));
+  var ypos = Math.floor(Math.random() * Math.floor(2));
+  var ypos = Math.floor(Math.random() * Math.floor(2));
 	sceneEl.appendChild(el);	
 	el.setAttribute('on-load', '');
   el.setAttribute('is-mimic', 'false');
@@ -75,8 +75,22 @@ AFRAME.registerComponent('log', {
   }
 });
 
-//This is based on a bad understanding of what registering a component is, I think.
+AFRAME.registerComponent('item', {
+schema: {
+		//This is where all the bits go
+		is-mimic: {type: 'boolean', default: false}
+	},
+init: function() {
+	//Set all the object's attributes here.
+	}
+tick: function() {
+	//If the object is a mimic, put the logic here!
+	}
 
+});
+
+//Not quite ready to delete this, but I believe it is mostly junk
+/*
 AFRAME.registerComponent('is-mimic', {
   schema: {type: 'string'},
   init: function () {
@@ -98,7 +112,6 @@ AFRAME.registerComponent('on-load', {
 	el.setAttribute('material', 'color', 'cyan');
 	el.setAttribute('position', {x: 1 + (i/2), y: 2 + (i/2), z: -3});
 	//el.object3D.position.set(1, 2, 3);
-  */
 	
   }
 });
